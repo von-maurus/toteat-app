@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "toteat-app"
+  "defaultProject": "toteat-app",
+  "cli": {
+    "analytics": "368c6b50-19d4-4bd7-8dca-8948ab1c48b2"
+  }
 }
