@@ -8,15 +8,15 @@
                     <label>Desde:</label>
                 </div>
                 <div class="form-group mx-2">
-                    <input (value)="inicio" (change)="onChangeInicio()" name="inicio" type="date" class="form-control"
-                        min="2000-01-01">
+                    <input (value)="inicio" (change)="onChangeInicio()" name="inicio" type="datetime-local"
+                        class="form-control" min="2018-01-01T00:00:00" max="2021-01-01T00:00:00">
                 </div>
                 <div class="text-left py-1 mx-2">
                     <label>Hasta:</label>
                 </div>
                 <div class="form-group">
-                    <input (value)="fin" (change)="onChangeTermino()" name="fin" type="date" class="form-control"
-                        min="2000-01-01">
+                    <input (value)="fin" (change)="onChangeTermino()" name="fin" type="datetime-local"
+                        class="form-control" min="2018-01-01T00:00:00" max="2021-01-01T00:00:00">
                 </div>
             </div>
             <div class="d-flex">

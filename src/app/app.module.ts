@@ -24,7 +24,7 @@ import { ExcelService } from './services/excel/excel.service';
     NgbButtonsModule,
     NgbDropdownModule,
     NgbAlertModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     LoadingService,
