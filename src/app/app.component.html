@@ -1,8 +1,14 @@
 <div id="main-container">
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="true">
+      <mat-sidenav></mat-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div id="header" class="shadow-sm">
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
   <div id="content-container">
-    <div id="header" class="shadow-sm">
-
-    </div>
     <div id="content">
       <router-outlet></router-outlet>
     </div>

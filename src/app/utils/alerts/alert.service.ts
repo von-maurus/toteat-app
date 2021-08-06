@@ -9,7 +9,7 @@ export class AlertService {
 
   constructor() { }
 
-  removeAlert(index: number) {
+  removeAlert(index: any) {
     this.alertList.splice(index, 1)
   }
 

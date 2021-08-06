@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/services/alert/alert.service';
 import { ExcelService } from 'src/app/services/excel/excel.service';
-import { LoadingService } from 'src/app/services/loading/loading.service';
 import { VentasService } from 'src/app/services/ventas/ventas.service';
+import { AlertService } from 'src/app/utils/alerts/alert.service';
+import { LoadingService } from 'src/app/utils/loading/loading.service';
 
 @Component({
   selector: 'app-reporte-ventas',

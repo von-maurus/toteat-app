@@ -1,0 +1,13 @@
+<div class="container-fluid d-flex align-items-center justify-content-center h-100 w-100 loading" *ngIf="service.isLoading">
+	<div class="row">
+		<div class="col-12 d-flex justify-content-center w-100">
+			<div class="rotating">
+				<i class="fas fa-circle-notch " style="font-size: 50px;"></i>
+				<!-- <fa-icon style="font-size: 50px;" [icon]="faCircleNotch" spin="true"></fa-icon> -->
+			</div>
+		</div>
+		<div class="col-12 d-flex justify-content-center">
+			<div>{{service.loadingText}}</div>
+		</div>
+	</div>
+</div>

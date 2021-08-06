@@ -26,6 +26,7 @@
     "bootstrap": "^4.5.0",
     "echarts": "^5.1.2",
     "mongodb": "^4.0.1",
+    "ngx-echarts": "^7.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "xlsx": "^0.17.0",
