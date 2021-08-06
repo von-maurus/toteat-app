@@ -5,12 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'reporte-venta', component: ReporteVentasComponent },
+  { path: '', redirectTo: 'reporte-venta', pathMatch: 'full' },
 ];
-
 @NgModule({
-  declarations: [ReporteVentasComponent],
+  declarations: [
+    ReporteVentasComponent
+  ],
   imports: [
-    CommonModule, RouterModule.forChild(routes),
+    CommonModule,
+    RouterModule.forChild(routes),
   ]
 })
-export class ReportesModule { }
+export class VentasModule { }

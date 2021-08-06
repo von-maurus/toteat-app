@@ -10,7 +10,6 @@ import { LoadingService } from './services/loading/loading.service';
 import { ConfigService } from './config/config.service';
 import { AlertService } from './services/alert/alert.service';
 import { ExcelService } from './services/excel/excel.service';
-
 @NgModule({
   declarations: [
     AppComponent,

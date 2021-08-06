@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/reportes/reporte-venta', pathMatch: 'full' },
+  { path: '', redirectTo: 'reporte-venta', pathMatch: 'full' },
   {
-    path: 'reportes',
-    loadChildren: () => import('./components/reportes/reportes/reportes.module').then(m => m.ReportesModule)
+    path: 'reporte-venta',
+    loadChildren: () => import('./components/ventas/ventas.module').then(m => m.VentasModule)
+  },
+  {
+    path: 'reporte-trabajadores',
+    loadChildren: () => import('./components/trabajadores/trabajadores.module').then(m => m.TrabajadoresModule)
   },
 ];
 
