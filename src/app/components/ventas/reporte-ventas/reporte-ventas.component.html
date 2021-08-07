@@ -1,33 +1,118 @@
+<!-- 
+    You probably asking for "How Binding works"
+
+([(ngModel)]) = Also called banana in the box
+
+If you are using only [] it means you are just binding value which is called attribute binding
+
+If you are using only () It means it is just event binding and fire event on change,click etc .
+
+In case you are using both, it means two-way binding in Angular. it will Update the value into DOM as well as your controller side.
+ -->
+
+<!-- Arreglando el problema con event.target.value: "Property value does not exist on type EventTarget":
+Hello @sysmat,
+
+Unfortunately casting in templates isn't really possible at this point. There is no way to import types within a template and it's not likely that Angular will gain that ability in the near future.
+
+There are three potential approaches here:
+
+use an explicit cast to any:
+<input (keyup)="filter($any($event.target).value)">
+-->
 <div class="m-3 p-3 shadow bg-white rounded">
     <div class="container-fluid p-3">
-        <h2>Reporte de Ventas - La Pikada de la Esquina</h2>
+        <h1>Reporte de Finanzas y Comportamiento de la Picada</h1>
         <br>
-        <div class="form-row">
+        <div class="d-flex justify-content-between mb-2">
             <div class="d-flex float-left flex-wrap">
                 <div class="text-left py-1 mx-2">
                     <label>Desde:</label>
                 </div>
                 <div class="form-group mx-2">
-                    <input (value)="inicio" (change)="onChangeInicio()" name="inicio" type="datetime-local"
-                        class="form-control" min="2018-01-01T00:00:00" max="2019-12-31T23:59:59">
+                    <input (change)="onChangeInicio($any($event!.target).value)" name="inicio" type="datetime-local"
+                        class="form-control" min="2000-01-01" id="inicio">
                 </div>
                 <div class="text-left py-1 mx-2">
                     <label>Hasta:</label>
                 </div>
                 <div class="form-group">
-                    <input (value)="fin" (change)="onChangeTermino()" name="fin" type="datetime-local"
-                        class="form-control" min="2018-01-01T00:00:00" max="2019-12-31T23:59:59">
+                    <input id="fin" (change)="onChangeTermino($any($event!.target).value)" name="fin"
+                        type="datetime-local" class="form-control" min="2000-01-01">
                 </div>
             </div>
-            <div class="d-flex">
-                <!-- <div class="text-right mx-2">
-                    <button class="btn btn-secondary mb-3 mt-auto" (click)="onHoySelected()">Hoy</button>
-                </div> -->
+            <div class="float-right">
                 <div class="text-right mx-2">
-                    <button class="btn btn-success mb-3 mt-auto">Año 2019</button>
+                    <button class="btn btn-success mb-3 mt-auto" (click)="onYearSelected()">Año 2019</button>
                 </div>
             </div>
         </div>
         <hr class="rounded">
+        <div class="d-flex flex-column align-items-start justify-content-start w-100 h-100">
+            <div class="k-row">
+                <div class="k-card">
+                    <div class="label">Total Ingresos</div>
+                    <div class="value">$ 12.321.321</div>
+                </div>
+                <div class="k-card">
+                    <div class="label">Producto Más Rentable</div>
+                    <div class="value" style="margin-top: 7px;">"Bisteck"</div>
+                    <div class="subvalue">Plato Principal</div>
+                    <div class="value3">$ 450.000</div>
+                </div>
+                <div class="k-card">
+                    <div class="label">Producto Más Vendido</div>
+                    <div class="value" style="margin-top: 7px;">"Limonada"</div>
+                    <div class="subvalue">Bebida</div>
+                    <div class="value3">230 Uni.</div>
+                </div>
+                <div class="k-card">
+                    <div class="label">Categoria Más Rentable</div>
+                    <div class="value" style="margin-top: 7px;">"Plato Principal"</div>
+                    <div class="value3">$ 650.000</div>
+                </div>
+                <div class="k-card">
+                    <div class="label">Método de Pago Más Rentable</div>
+                    <div class="value" style="margin-top: 7px;">"Tarjeta de Crédito"</div>
+                    <div class="value3">$ 1.400.000</div>
+                </div>
+                <div class="k-card">
+                    <div class="label">Método de Pago Más Usado</div>
+                    <div class="value" style="margin-top: 7px;">"Efectivo"</div>
+                    <div class="subvalue">230 veces utilizado</div>
+                    <div class="value3">$ 1.230.000</div>
+                </div>
+                <div class="k-card">
+                    <div class="label">Zona Más Rentable</div>
+                    <div class="value" style="margin-top: 7px;">"Vip"</div>
+                    <div class="value3">$ 1.500.000</div>
+                </div>
+            </div>
+        </div>
+        <hr class="rounded">
+        <div class="justify-content-center">
+            <h2>Ingresos por Período: {{inicioShow}} hasta {{finShow}}</h2>
+            <div class=" d-flex w-100 justify-content-center ">
+                <button class="btn btn-primary mr-3 mb-3" (click)="dia()">Día</button>
+                <button class="btn btn-primary mr-3 mb-3" (click)="mes()">Mes</button>
+                <button class="btn btn-primary mr-3 mb-3" (click)="anio()">Año</button>
+            </div>
+            <div class="d-flex flex-row w-100">
+                <div id="ingresos-line-chart" class="chart d-flex w-100 justify-content-center">
+                </div>
+            </div>
+        </div>
+        <hr class="rounded">
+        <div class="justify-content-center">
+            <h2>Dias Más Rentables: {{inicioShow}} hasta {{finShow}}</h2>
+            <div class="d-flex flex-row w-100">
+                <div id="dias-rentables-bar-chart" class="chart d-flex w-100 justify-content-center">
+                </div>
+            </div>
+        </div>
+        <hr class="rounded">
+        <div class="justify-content-center">
+            <h2>Todas las ventas entre el período: {{inicioShow}} hasta {{finShow}}</h2>
+        </div>
     </div>
 </div>

@@ -7,15 +7,15 @@ export class LoadingService {
 
   constructor() { }
 
-  private loadingText: string = "Cargando...";
+  public loadingText: string = "Cargando...";
   public isLoading: boolean = false;
 
-  show(message: string = "Cargando..."){
+  show(message: string = "Cargando...") {
     this.loadingText = message;
     this.isLoading = true;
   }
 
-  hide(){
+  hide() {
     this.isLoading = false;
   }
 }

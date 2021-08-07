@@ -1,11 +1,13 @@
 .user-image {
-    width: 40px;
+    width: 35px;
 }
 mat-toolbar {
     position: sticky !important;
     top: 0;
     z-index: 100;
     font-family: "Montserrat";
+    background: rgb(91, 60, 230);
+    border: 0;
 }
 ul {
     li {
@@ -17,20 +19,22 @@ button {
     border: 0;
     outline: none;
     background: transparent;
+    color: white;
 }
 .mat-menu-item {
     font-family: "Montserrat" !important;
+    color: black !important;
 }
 .user {
     font-size: 15px;
 }
 .user-image {
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
 }
 .user-image-icon {
-    height: 18px;
+    height: 15px;
     font-size: 14px;
 }
 /*
@@ -43,6 +47,6 @@ since /deep/ combinator has been deprecated, it is recommended to use
 */
 ::ng-deep {
     .mat-menu-content {
-        width: 180px;
+        width: 10px;
     }
 }

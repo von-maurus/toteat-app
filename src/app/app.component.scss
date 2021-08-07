@@ -12,7 +12,7 @@
 }
 #content {
     width: 100%;
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     overflow: auto;
     box-shadow: inset 0 0.5rem 1rem rgba(0, 0, 0, 0.281) !important;
 }
@@ -25,4 +25,5 @@ mat-drawer {
     width: 320px;
     height: 100%;
     background: rgb(91, 60, 230);
+    border: 0;
 }
