@@ -10,19 +10,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfigService } from './config/config.service';
 import { ExcelService } from './services/excel/excel.service';
 import { SideNavComponent } from './utils/side-nav/side-nav.component';
 import { AlertService } from './utils/alerts/alert.service';
 import { LoadingService } from './utils/loading/loading.service';
+import { HeaderComponent } from './utils/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
-    // MatSidenavModule,
-    // MatToolbarModule
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -34,11 +35,13 @@ import { LoadingService } from './utils/loading/loading.service';
     NgbDropdownModule,
     NgbAlertModule,
     HttpClientModule,
+    // Material Imports
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [
     LoadingService,

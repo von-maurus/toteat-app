@@ -1,0 +1,48 @@
+.user-image {
+    width: 40px;
+}
+mat-toolbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 100;
+    font-family: "Montserrat";
+}
+ul {
+    li {
+        list-style: none;
+        font-family: "Montserrat" !important;
+    }
+}
+button {
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.mat-menu-item {
+    font-family: "Montserrat" !important;
+}
+.user {
+    font-size: 15px;
+}
+.user-image {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+.user-image-icon {
+    height: 18px;
+    font-size: 14px;
+}
+/*
+Usually /deep/ “shadow-piercing” combinator can be used to force a 
+style down to child components. This selector had an alias >>> and 
+now has another one called ::ng-deep.
+
+since /deep/ combinator has been deprecated, it is recommended to use 
+::ng-deep
+*/
+::ng-deep {
+    .mat-menu-content {
+        width: 180px;
+    }
+}

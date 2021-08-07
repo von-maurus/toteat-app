@@ -1,1 +1,13 @@
-<p>side-nav works!</p>
+<mat-nav-list>
+    <div class="logo py-5">
+        <img src="../../assets/logo1.svg" alt="La picada de la Esquina">
+    </div>
+    <mat-divider></mat-divider>
+    <h2 matSubheader class="mt-2"> Módulos</h2>
+    <a mat-list-item routerLink="/ventas" routerLinkActive="list-item-active">
+        <mat-icon>analytics</mat-icon> Ventas
+    </a>
+    <a mat-list-item routerLink="/trabajadores" routerLinkActive="list-item-active">
+        <mat-icon>people</mat-icon> Trabajadores
+    </a>
+</mat-nav-list>

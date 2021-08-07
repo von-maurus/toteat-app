@@ -1,16 +1,13 @@
-<div id="main-container">
-  <mat-drawer-container>
-    <mat-drawer mode="side" [opened]="true">
-      <mat-sidenav></mat-sidenav>
-    </mat-drawer>
-    <mat-drawer-content>
-      <div id="header" class="shadow-sm">
-      </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="isSidebarOpen">
+    <app-side-nav></app-side-nav>
+  </mat-drawer>
   <div id="content-container">
+    <div id="header" class="shadow-sm">
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+    </div>
     <div id="content">
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+</mat-drawer-container>

@@ -4,8 +4,8 @@ import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.componen
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'reporte-venta', component: ReporteVentasComponent },
-  { path: '', redirectTo: 'reporte-venta', pathMatch: 'full' },
+  { path: 'reporte-ventas', component: ReporteVentasComponent },
+  { path: '', redirectTo: 'reporte-ventas', pathMatch: 'full' },
 ];
 @NgModule({
   declarations: [

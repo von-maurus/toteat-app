@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReporteTrabajadoresComponent } from './components/trabajadores/reporte-trabajadores/reporte-trabajadores.component';
+import { ReporteVentasComponent } from './components/ventas/reporte-ventas/reporte-ventas.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'reporte-venta', pathMatch: 'full' },
+  { path: '', redirectTo: 'ventas', pathMatch: 'full' },
   {
-    path: 'reporte-venta',
-    loadChildren: () => import('./components/ventas/ventas.module').then(m => m.VentasModule)
+    path: 'ventas', component: ReporteVentasComponent
   },
   {
-    path: 'reporte-trabajadores',
-    loadChildren: () => import('./components/trabajadores/trabajadores.module').then(m => m.TrabajadoresModule)
+    path: 'trabajadores', component: ReporteTrabajadoresComponent
   },
 ];
 
