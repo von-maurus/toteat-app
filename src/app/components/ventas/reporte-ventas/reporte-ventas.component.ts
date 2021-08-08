@@ -22,7 +22,16 @@ export class ReporteVentasComponent implements OnInit {
   // Table Variables para Ventas
   ventas: any[] = [];
   actions = [];
-  ventasCols = [];
+  ventasCols = [
+    {
+      label: 'Fecha de Registro',
+      attribute: 'date_opened',
+      value: (element: any, index: number) => {
+        if (element.fecha) return this.formatter.timestampFormat(element.fecha);
+        else return 'Sin información';
+      }
+    },
+  ];
 
   // ------Ingresos Line Chart------
   lineChartIngresos: any;
@@ -79,9 +88,6 @@ export class ReporteVentasComponent implements OnInit {
       }
     }]
   };
-
-
-
 
   constructor(
     private excel: ExcelService,

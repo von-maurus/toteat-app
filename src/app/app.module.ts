@@ -22,7 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AlertsComponent } from './utils/alerts/alerts.component';
 import { LoadingScreenComponent } from './utils/loading-screen/loading-screen.component';
-import { KuvTableComponent, KuvTableModule, KuvTableService } from 'kuv-table';
+import { NgxKuvUtilsComponent, NgxKuvUtilsModule } from 'ngx-kuv-utils';
+import { NgxKuvToolsModule } from 'ngx-kuv-tools';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { KuvTableModule } from 'kuv-table';
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null as any;
 
 @NgModule({
   declarations: [
@@ -31,18 +35,20 @@ import { KuvTableComponent, KuvTableModule, KuvTableService } from 'kuv-table';
     HeaderComponent,
     AlertsComponent,
     LoadingScreenComponent,
-
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    // Ng Modules
     NgbModalModule,
     NgbButtonsModule,
     NgbDropdownModule,
     NgbAlertModule,
     NgbPopoverModule,
+    NgxKuvUtilsModule,
+    NgxKuvToolsModule,
     HttpClientModule,
     // Material Imports
     MatSidenavModule,
@@ -55,18 +61,20 @@ import { KuvTableComponent, KuvTableModule, KuvTableService } from 'kuv-table';
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    KuvTableModule
+    NgxMaskModule.forRoot(options),
   ],
   providers: [
     LoadingService,
     AlertService,
     ExcelService,
-    ConfigService, KuvTableService
+    ConfigService,
   ],
   exports: [
     MatSidenavModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxKuvUtilsModule,
+    NgxKuvUtilsComponent
   ],
   bootstrap: [AppComponent]
 })

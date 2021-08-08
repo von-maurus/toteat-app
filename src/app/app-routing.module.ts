@@ -6,10 +6,12 @@ import { ReporteVentasComponent } from './components/ventas/reporte-ventas/repor
 const routes: Routes = [
   { path: '', redirectTo: 'ventas', pathMatch: 'full' },
   {
-    path: 'ventas', component: ReporteVentasComponent
+    path: 'ventas',
+    loadChildren: () => import('./components/ventas/ventas.module').then(m => m.VentasModule)
   },
   {
-    path: 'trabajadores', component: ReporteTrabajadoresComponent
+    path: 'trabajadores', component: ReporteTrabajadoresComponent,
+    loadChildren: () => import('./components/trabajadores/trabajadores.module').then(m => m.TrabajadoresModule)
   },
 ];
 
