@@ -1,0 +1,49 @@
+html,
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif !important;
+}
+.item {
+    flex-grow: 6;
+    align-self: auto; /* default 0 */
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+    background-color: rgb(102, 72, 236);
+    color: white;
+    // margin: 1.8rem;
+    border-radius: 10px;
+    width: auto;
+    padding: 1rem 3rem;
+    height: auto;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    .label {
+        font-size: 17px;
+        // font-weight: 400;
+    }
+}
+/* Rounded border */
+hr.rounded {
+    border-top: 2px solid #bbbbbbc0;
+    border-radius: 1px;
+}
+.flex-container {
+    /* We first create a flex layout context */
+    display: flex;
+    align-content: center;
+    flex-flow: row wrap;
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+    gap: 1rem;
+}
+.value {
+    display: flex;
+    flex-direction: row;
+    // margin: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: space-between;
+}

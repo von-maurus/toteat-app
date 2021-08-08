@@ -22,4 +22,8 @@ export class VentasService {
     let params = new HttpParams().set("inicio", inicio).set("fin", fin);
     return this.http.get(this.URL_LOCAL + "get-ventas-by-date", { headers: this.httpOptions.headers, params: params });
   }
+  getIngresoTotal(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-ingreso-total", { headers: this.httpOptions.headers, params: params });
+  }
 }

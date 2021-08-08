@@ -1,1 +1,80 @@
-<p>venta-view works!</p>
+<div class="bg-white rounded">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Detalles de la Venta</h2>
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="flex-container">
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">Monto Total</div>
+                        <div class="value justify-content-center">
+                            $ {{venta.total.toLocaleString('de-DE')}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">Cajero que realizo el registro</div>
+                        <div class="value justify-content-center">
+                            {{venta.cashier}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">Mesero</div>
+                        <div class="value justify-content-center">
+                            {{venta.waiter}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">Tiempo en la Mesa</div>
+                        <div class="value justify-content-center">
+                            {{tiempoEnMesa}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">Personas Atendidas</div>
+                        <div class="value justify-content-center">
+                            {{venta.diners}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">N° de Mesa</div>
+                        <div class="value justify-content-center">
+                            {{venta.table}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item flex-fill bd-highlight">
+                    <div class="content">
+                        <div class="label">Zona</div>
+                        <div class="value justify-content-center">
+                            {{venta.zone}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="rounded">
+            <h3>Productos seleccionados</h3>
+            <kuv-table [items]="products" [columns]="prodCols" [actions]="prodActions" [usePagination]="false"
+                [useSort]="false" [useIndex]="false" [useFilter]="false" [isCompact]="true">
+            </kuv-table>
+            <hr class="rounded">
+            <h3>Métodos de Pago</h3>
+            <kuv-table [items]="payments" [columns]="metCols" [actions]="metActions" [usePagination]="false"
+                [useSort]="false" [useIndex]="false" [useFilter]="false" [isCompact]="true">
+            </kuv-table>
+        </div>
+    </div>
+</div>
