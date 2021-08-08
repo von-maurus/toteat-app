@@ -109,7 +109,6 @@ export class ReporteVentasComponent implements OnInit {
     this.barChartDiasRentables = echarts.init(<HTMLDivElement>document.getElementById('dias-rentables-bar-chart'));
     this.lineChartIngresos.setOption(this.optionIngresosLine)
     this.barChartDiasRentables.setOption(this.optionDiasMasRentables)
-    this.loading.hide();
   }
 
   onChangeInicio(event: any): void {
@@ -159,7 +158,16 @@ export class ReporteVentasComponent implements OnInit {
 
   reload() {
     this.loading.show();
-    this.loading.hide();
+    let inicioAux = ''
+    let finAux = ''
+    inicioAux = this.inicio.slice(0, 10) + ' ' + this.inicio.slice(11, 16);
+    finAux = this.fin.slice(0, 10) + ' ' + this.fin.slice(11, 16);
+    console.log(inicioAux);
+    console.log(finAux);
+    this.service.getVentasByDate(inicioAux, finAux).subscribe((res: any) => {
+      console.log(res);
+      this.loading.hide();
+    }, (err) => console.error(err));
   }
 
   dia() {
