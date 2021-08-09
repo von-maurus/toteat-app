@@ -6,7 +6,7 @@ import { LoadingService } from 'src/app/utils/loading/loading.service';
 import * as echarts from 'echarts';
 import { FormatterService } from 'src/app/utils/formatter/formatter.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { VentaViewComponent } from '../../trabajadores/venta-view/venta-view.component';
+import { VentaViewComponent } from '../../venta-view/venta-view.component';
 
 @Component({
   selector: 'app-reporte-ventas',
@@ -20,7 +20,7 @@ export class ReporteVentasComponent implements OnInit {
   fin: string = "2000-01-31";
   inicioShow: string = '';
   finShow: string = '';
-  filter: string = 'mes';
+  filter: string = 'dia';
 
   // Variables Card y posibles graficos
   totalIngresos: any = [{
@@ -202,7 +202,7 @@ export class ReporteVentasComponent implements OnInit {
   ngOnInit(): void {
     this.loading.show();
     this.inicio = new Date(2019, 0, 1, 3, 0).toISOString().substr(0, 16);
-    this.fin = new Date(2019, 0, 2, 20, 59).toISOString().substr(0, 16);
+    this.fin = new Date(2019, 0, 15, 20, 59).toISOString().substr(0, 16);
     this.inicioShow = this.formatter.timestampFormat(this.inicio);
     this.finShow = this.formatter.timestampFormat(this.fin);
     this.barChartDiasRentables = echarts.init(<HTMLDivElement>document.getElementById('dias-rentables-bar-chart'));
@@ -417,5 +417,9 @@ export class ReporteVentasComponent implements OnInit {
     const modalRef = this.modalService.open(VentaViewComponent, { windowClass: 'clear-modal', size: 'lg', scrollable: true });
     modalRef.componentInstance.venta = element;
     modalRef.result.then((result) => { }, (reason) => { });
+  }
+
+  download() {
+    this.excel.exportarExcel(this.ventas, this.ventasCols, 'Ventas', 'ventas');
   }
 }

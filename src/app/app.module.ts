@@ -26,6 +26,7 @@ import { NgxKuvUtilsComponent, NgxKuvUtilsModule } from 'ngx-kuv-utils';
 import { NgxKuvToolsModule } from 'ngx-kuv-tools';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { KuvTableModule } from 'kuv-table';
+import { VentaViewComponent } from './components/venta-view/venta-view.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null as any;
 
 @NgModule({
@@ -74,8 +75,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null as any;
     MatToolbarModule,
     MatMenuModule,
     NgxKuvUtilsModule,
-    NgxKuvUtilsComponent
+    NgxKuvUtilsComponent,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    VentaViewComponent
+  ]
 })
 export class AppModule { }

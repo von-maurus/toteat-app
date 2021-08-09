@@ -111,8 +111,12 @@ use an explicit cast to any:
             </div>
         </div>
         <hr class="rounded">
-        <div class="justify-content-center">
+        <div class="d-flex flex-row justify-content-between">
             <h2>Todas las ventas entre el período: {{inicioShow}} hasta {{finShow}}</h2>
+            <button class="btn btn-primary my-3" (click)="download()"><i class="far fa-file-excel"></i>
+                Exportar</button>
+        </div>
+        <div class="justify-content-center">
             <!-- [items]="ventas" [columns]="ventasCols" [actions]="actions" -->
             <kuv-table [items]="ventas" [columns]="ventasCols" [actions]="actions"></kuv-table>
         </div>

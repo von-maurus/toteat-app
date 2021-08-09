@@ -8,9 +8,9 @@ import { AlertsComponent } from 'src/app/utils/alerts/alerts.component';
 import { NgbAlertModule, NgbModalModule, NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxKuvUtilsComponent, NgxKuvUtilsModule } from 'ngx-kuv-utils';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
-import { NgxKuvToolsComponent, NgxKuvToolsModule } from 'ngx-kuv-tools';
-import { KuvTableComponent, KuvTableModule } from 'kuv-table';
-import { VentaViewComponent } from './venta-view/venta-view.component';
+import { NgxKuvToolsModule } from 'ngx-kuv-tools';
+import { KuvTableModule } from 'kuv-table';
+import { VentaViewComponent } from '../venta-view/venta-view.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null as any;
 
 const routes: Routes = [

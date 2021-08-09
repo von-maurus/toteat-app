@@ -30,18 +30,18 @@
             <div class="k-row">
                 <div class="k-card">
                     <div class="label">Mesero Más Rentable</div>
-                    <div class="value">Pedro Cortéz</div>
-                    <div class="value3">$ 450.000</div>
+                    <div class="value">{{meserosMasRentables[0].nombre}}</div>
+                    <div class="value3">$ {{meserosMasRentables[0].cantidad.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Mesero que Atendió Más Personas</div>
-                    <div class="value" style="margin-top: 7px;">Jorge Romero</div>
-                    <div class="value3">320 Personas</div>
+                    <div class="value" style="margin-top: 7px;">{{meserosMasPersonas[0].nombre}}</div>
+                    <div class="value3">{{meserosMasPersonas[0].cantidad}} Personas</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Mesero con Más Mesas Atendidas</div>
-                    <div class="value" style="margin-top: 7px;">Mauricio Sánchez</div>
-                    <div class="value3">22 Mesas.</div>
+                    <div class="value" style="margin-top: 7px;">{{meserosMasVentas[0].nombre}}</div>
+                    <div class="value3">{{meserosMasVentas[0].cantidad}} Mesas.</div>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                     </select>
                 </div>
             </div>
-            <kuv-table [items]="ventasByWaiter" [columns]="columns" [actions]="actions"></kuv-table>
+            <kuv-table [items]="ventasByWaiter" [columns]="waiterColumns" [actions]="waiterActions"></kuv-table>
         </div>
         <hr class="rounded">
         <div class="justify-content-center">
@@ -89,7 +89,7 @@
                 </div>
                 <div class="form-group">
                     <select class="custom-select" id="tipoCosecha"
-                        (change)="onWaiterChanged($any($event!.target).value)">
+                        (change)="onCashierChanged($any($event!.target).value)">
                         <option value=''>Seleccione un Cajero</option>
                         <ng-container *ngFor="let c of cajeros; index as i">
                             <option [value]='c'>{{c}}</option>
