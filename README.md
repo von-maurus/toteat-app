@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Tareas realizadas en este proyecto de ejemplo:
 
-1) Se crea un proyecto en Angular 10+, se diseña el front end, se diseñan dos modulos, el de trabajadores y ventas y se crean componentes para mostrar la reportabilidad. Se utiliza CSS para los estilos, bootstrap para componentes con estilos y clases y una libreria llamada kuv-table (npm kuv-table) la cual es una tabla que permite mostrar datos y operaciones CRUD de forma rapida y además filtrar. 
+1) Se crea un proyecto en Angular 10+, se diseña el front end, se diseñan dos modulos, el de trabajadores y ventas y se crean componentes para mostrar la reportabilidad. Se utiliza CSS para los estilos, bootstrap para componentes con estilos y clases.
 2) Se configura el frontend implementando los servicios que se comunican con la API REST desarrollada con NodeJS, MongoDB y ExpressJS.
 3) Por el lado del backend, se configura la API REST y las configuraciones del servidor programado usando NodeJS y ExpressJS. En esta parte se considera usar Babel para correr codigo antiguo y nuevo de JS por temas de notaciones. Se configura la conexion con la BD usando Mongoose.
 4) La base de datos se sube a Atlas MongoDB utilizando el cluster starter para pruebas (gratuito). 
