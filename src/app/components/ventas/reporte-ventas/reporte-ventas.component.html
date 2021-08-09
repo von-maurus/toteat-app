@@ -52,40 +52,40 @@ use an explicit cast to any:
             <div class="k-row">
                 <div class="k-card">
                     <div class="label">Total Ingresos</div>
-                    <div class="value">$ 12.321.321</div>
+                    <div class="value">$ {{totalIngresos[0].totalAmount.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Producto Más Rentable</div>
-                    <div class="value" style="margin-top: 7px;">"Bisteck"</div>
-                    <div class="subvalue">Plato Principal</div>
-                    <div class="value3">$ 450.000</div>
+                    <div class="value" style="margin-top: 7px;">"{{productsMasRentables[0].name}}"</div>
+                    <div class="subvalue">{{productsMasRentables[0].category}}</div>
+                    <div class="value3">$ {{productsMasRentables[0].total.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Producto Más Vendido</div>
-                    <div class="value" style="margin-top: 7px;">"Limonada"</div>
-                    <div class="subvalue">Bebida</div>
-                    <div class="value3">230 Uni.</div>
+                    <div class="value" style="margin-top: 7px;">"{{productsMasVendidos[0].name}}"</div>
+                    <div class="subvalue">{{productsMasVendidos[0].cantidad}} Uni.</div>
+                    <div class="value3">$ {{productsMasVendidos[0].montoTotal.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Categoria Más Rentable</div>
-                    <div class="value" style="margin-top: 7px;">"Plato Principal"</div>
-                    <div class="value3">$ 650.000</div>
+                    <div class="value" style="margin-top: 7px;">"{{categMasRent[0].name}}"</div>
+                    <div class="value3">$ {{categMasRent[0].total.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Método de Pago Más Rentable</div>
-                    <div class="value" style="margin-top: 7px;">"Tarjeta de Crédito"</div>
-                    <div class="value3">$ 1.400.000</div>
+                    <div class="value" style="margin-top: 7px;">"{{metPagosMasRent[0].nombre}}"</div>
+                    <div class="value3">$ {{metPagosMasRent[0].montoTotal.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Método de Pago Más Usado</div>
-                    <div class="value" style="margin-top: 7px;">"Efectivo"</div>
-                    <div class="subvalue">230 veces utilizado</div>
-                    <div class="value3">$ 1.230.000</div>
+                    <div class="value" style="margin-top: 7px;">"{{metPagosMasUsado[0].nombre}}"</div>
+                    <div class="subvalue">{{metPagosMasUsado[0].cantidad.toLocaleString('de-DE')}} veces</div>
+                    <div class="value3">$ {{metPagosMasUsado[0].monto.toLocaleString('de-DE')}}</div>
                 </div>
                 <div class="k-card">
                     <div class="label">Zona Más Rentable</div>
-                    <div class="value" style="margin-top: 7px;">"Vip"</div>
-                    <div class="value3">$ 1.500.000</div>
+                    <div class="value" style="margin-top: 7px;">"{{zonaMasRentable[0].zone}}"</div>
+                    <div class="value3">$ {{zonaMasRentable[0].montoTotal.toLocaleString('de-DE')}}</div>
                 </div>
             </div>
         </div>

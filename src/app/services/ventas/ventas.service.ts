@@ -26,4 +26,28 @@ export class VentasService {
     let params = new HttpParams().set("inicio", inicio).set("fin", fin);
     return this.http.get(this.URL_LOCAL + "get-ingreso-total", { headers: this.httpOptions.headers, params: params });
   }
+  getProductosMasRentables(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-prod-rentables", { headers: this.httpOptions.headers, params: params });
+  }
+  getCategMasRentables(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-cat-rentables", { headers: this.httpOptions.headers, params: params });
+  }
+  getProdMasVendidos(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-prod-mas-vendidos", { headers: this.httpOptions.headers, params: params });
+  }
+  getRankedMetodos(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-ranked-metodos", { headers: this.httpOptions.headers, params: params });
+  }
+  getIngresosPerDay(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-ingresos-per-day", { headers: this.httpOptions.headers, params: params });
+  }
+  getVentasByZone(inicio: any, fin: any): Observable<any> {
+    let params = new HttpParams().set("inicio", inicio).set("fin", fin);
+    return this.http.get(this.URL_LOCAL + "get-ventas-by-zone", { headers: this.httpOptions.headers, params: params });
+  }
 }

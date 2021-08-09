@@ -22,6 +22,57 @@ export class ReporteVentasComponent implements OnInit {
   finShow: string = '';
   filter: string = 'mes';
 
+  // Variables Card y posibles graficos
+  totalIngresos: any = [{
+    'totalAmount': 0
+  }];
+  productsMasRentables: any = [
+    {
+      "name": '',
+      "category": '',
+      "total": 0
+    }
+  ];
+  productsMasVendidos: any = [
+    {
+      "name": '',
+      "cantidad": 1,
+      "montoTotal": 0
+    }
+
+  ];
+  categMasRent: any = [
+    {
+      "name": '',
+      "total": ''
+    }
+  ];
+  metPagosMasRent: any = [
+    {
+      "nombre": '',
+      "montoTotal": 0
+    }
+  ];
+  metPagosMasUsado: any = [
+    {
+      "nombre": '',
+      "cantidad": 1,
+      "monto": 0
+    }
+  ];
+  zonaMasRentable: any = [
+    {
+      "zone": '',
+      "montoTotal": 0
+    }
+  ];
+  diasMasRentables: any = [
+    {
+      "dia": '',
+      "montoTotal": 0
+    }
+  ];
+
   // Table Variables para Ventas
   ventas: any[] = [];
   actions = [
@@ -109,26 +160,34 @@ export class ReporteVentasComponent implements OnInit {
   dataBarChart: any[] = [];
   optionDiasMasRentables = {
     legendHoverLink: true,
+    toolbox: {
+      show: true,
+      feature: {
+        dataView: { readOnly: false },
+      }
+    },
     grid: { bottom: 100, left: 100 },
     tooltip: {
       trigger: 'axis'
     },
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
     },
     yAxis: {
       type: 'value'
     },
-    series: [{
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: 'bar',
-      name: 'Ingresos',
-      showBackground: true,
-      backgroundStyle: {
-        color: 'rgba(180, 180, 180, 0.2)'
+    series: [
+      {
+        data: [0, 0, 0, 0, 0, 0, 0],
+        type: 'bar',
+        name: 'Ingresos',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(180, 180, 180, 0.2)'
+        }
       }
-    }]
+    ]
   };
 
   constructor(
@@ -150,7 +209,6 @@ export class ReporteVentasComponent implements OnInit {
     this.lineChartIngresos = echarts.init(<HTMLDivElement>document.getElementById('ingresos-line-chart'));
     this.reload();
     this.lineChartIngresos.setOption(this.optionIngresosLine);
-    this.barChartDiasRentables.setOption(this.optionDiasMasRentables)
   }
 
   loadLineChart() {
@@ -302,10 +360,41 @@ export class ReporteVentasComponent implements OnInit {
     finAux = this.fin.slice(0, 10) + ' ' + this.fin.slice(11, 16);
     console.log(inicioAux);
     console.log(finAux);
-    this.service.getVentasByDate(inicioAux, finAux).subscribe((res: any) => {
-      this.ventas = res;
+    this.service.getVentasByDate(inicioAux, finAux).subscribe((res1: any) => {
+      this.service.getProductosMasRentables(inicioAux, finAux).subscribe((res2: any) => {
+        this.service.getProdMasVendidos(inicioAux, finAux).subscribe((res3: any) => {
+          this.service.getCategMasRentables(inicioAux, finAux).subscribe((res4: any) => {
+            this.service.getRankedMetodos(inicioAux, finAux).subscribe((res5: any) => {
+              this.service.getVentasByZone(inicioAux, finAux).subscribe((res6: any) => {
+                this.service.getIngresosPerDay(inicioAux, finAux).subscribe((res7: any) => {
+                  this.service.getIngresoTotal(inicioAux, finAux).subscribe((res8: any) => {
+                    this.ventas = res1;
+                    this.totalIngresos = res8;
+                    this.productsMasRentables = res2;
+                    this.productsMasVendidos = res3;
+                    this.categMasRent = res4;
+                    this.metPagosMasRent = res5[0].masRentables;
+                    this.metPagosMasUsado = res5[0].masUsados;
+                    this.zonaMasRentable = res6;
+                    this.diasMasRentables = res7;
+                    this.diasMasRentables.forEach((d: any) => {
+                      let index = this.optionDiasMasRentables.xAxis.data.findIndex((e) => e == d.dia);
+                      if (index != -1) {
+                        this.optionDiasMasRentables.series[0].data[index] = d.montoTotal;
+                      }
+                    });
+                    console.log('Dias mas rent', this.diasMasRentables);
+                    console.log('met pag mas usad', this.metPagosMasUsado);
+                    this.barChartDiasRentables.setOption(this.optionDiasMasRentables)
+                    this.reloadIngresosLineChart(this.ventas);
+                  }, (err) => { console.error(err + ' Ingresos totales') });
+                });
+              });
+            });
+          });
+        }, (err) => console.error(err));
+      }, (err) => console.error(err));
       // console.log(res);
-      this.reloadIngresosLineChart(this.ventas);
     }, (err) => console.error(err));
   }
 
