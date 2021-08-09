@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class TrabajadoresService {
 
-  URL_LOCAL = 'http://localhost:4000/api/ventas/';
-  // URL_API = 'http://185.253.154.69:4000/api/ventas/';
+  // URL_API = 'http://localhost:4000/api/ventas/';
+  URL_API = 'http://185.253.154.69:4000/api/ventas/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -20,14 +20,14 @@ export class TrabajadoresService {
 
   getVentasByWaiter(inicio: any, fin: any, name: any): Observable<any> {
     let params = new HttpParams().set("inicio", inicio).set("fin", fin).set("name", name);
-    return this.http.get(this.URL_LOCAL + "get-waiter-ventas", { headers: this.httpOptions.headers, params: params });
+    return this.http.get(this.URL_API + "get-waiter-ventas", { headers: this.httpOptions.headers, params: params });
   }
   getVentasByCashier(inicio: any, fin: any, name: any): Observable<any> {
     let params = new HttpParams().set("inicio", inicio).set("fin", fin).set("name", name);
-    return this.http.get(this.URL_LOCAL + "get-cashier-ventas", { headers: this.httpOptions.headers, params: params });
+    return this.http.get(this.URL_API + "get-cashier-ventas", { headers: this.httpOptions.headers, params: params });
   }
   getRankedWaiters(inicio: any, fin: any): Observable<any> {
     let params = new HttpParams().set("inicio", inicio).set("fin", fin);
-    return this.http.get(this.URL_LOCAL + "get-ranked-waiters", { headers: this.httpOptions.headers, params: params });
+    return this.http.get(this.URL_API + "get-ranked-waiters", { headers: this.httpOptions.headers, params: params });
   }
 }
