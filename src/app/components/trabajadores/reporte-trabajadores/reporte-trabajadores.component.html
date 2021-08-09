@@ -63,7 +63,9 @@
         </div>
         <hr class="rounded">
         <div class="justify-content-center">
-            <h2>Todas las ventas de un Mesero entre el período: {{inicioShow}} hasta {{finShow}}</h2>
+            <h2>Todas las ventas de un Mesero en el período: {{inicioShow}} hasta {{finShow}}</h2>
+            <button class="btn btn-primary my-3" (click)="downloadWaiterVentas()"><i class="far fa-file-excel"></i>
+                Exportar</button>
             <div class="form-row">
                 <div class="text-left py-1 mx-2">
                     <label style="font-size: 18px;">Mesero:</label>
@@ -78,11 +80,17 @@
                     </select>
                 </div>
             </div>
+            <!-- <div class="d-flex flex-row justify-content-between">
+                <h2>Todas las ventas entre el período: {{inicioShow}} hasta {{finShow}}</h2>
+
+            </div> -->
             <kuv-table [items]="ventasByWaiter" [columns]="waiterColumns" [actions]="waiterActions"></kuv-table>
         </div>
         <hr class="rounded">
         <div class="justify-content-center">
             <h2>Todas las Ventas Registradas de un Cajero entre el período: {{inicioShow}} hasta {{finShow}}</h2>
+            <button class="btn btn-primary my-3" (click)="downloadCashierVentas()"><i class="far fa-file-excel"></i>
+                Exportar</button>
             <div class="form-row">
                 <div class="text-left py-1 mx-2">
                     <label style="font-size: 18px;">Cajero:</label>

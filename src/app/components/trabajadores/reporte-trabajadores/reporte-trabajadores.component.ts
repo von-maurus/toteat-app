@@ -288,7 +288,6 @@ export class ReporteTrabajadoresComponent implements OnInit {
     this.barChartMasRentables = echarts.init(<HTMLDivElement>document.getElementById('meseros-rentables-zona'));
     this.barChartMasPersonasAtendidas = echarts.init(<HTMLDivElement>document.getElementById('meseros-mas-personas-zona'));
     this.barChartMasVentas = echarts.init(<HTMLDivElement>document.getElementById('meseros-mas-ventas-zona'));
-    this.barChartMasVentas.setOption(this.optionsMasVentasByZone); this.loading.hide();
     this.reload();
   }
 
@@ -492,5 +491,17 @@ export class ReporteTrabajadoresComponent implements OnInit {
     this.optionsMasVentasByZone.xAxis.data = this.leyendasMasRentables;
     this.optionsMasVentasByZone.series = this.dataMasVentas;
     this.barChartMasVentas.setOption(this.optionsMasVentasByZone);
+  }
+
+  downloadWaiterVentas() {
+    if (this.ventasByWaiter && this.ventasByWaiter.length != 0) {
+      this.excel.exportarExcel(this.ventasByWaiter, this.waiterColumns, 'Ventas - Mesero', 'ventas ' + this.lastWaiterSelected);
+    }
+  }
+
+  downloadCashierVentas() {
+    if (this.ventasByCashier && this.ventasByCashier.length != 0) {
+      this.excel.exportarExcel(this.ventasByCashier, this.columnsCashier, 'Ventas - Cajero', 'ventas ' + this.lastCashierSelected);
+    }
   }
 }
