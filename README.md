@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
 
-Tareas realizadas en este proyecto de ejemplo:
+Tareas realizadas en este proyecto de "La Picada de la Esquina":
 
 1) Se crea un proyecto en Angular 10+, se diseña el front end, se diseñan dos modulos, el de trabajadores y ventas y se crean componentes para mostrar la reportabilidad. Se utiliza CSS para los estilos, bootstrap para componentes con estilos y clases.
 2) Se configura el frontend implementando los servicios que se comunican con la API REST desarrollada con NodeJS, MongoDB y ExpressJS.
